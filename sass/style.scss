@@ -3,7 +3,7 @@
 /* Variables */
 
 $color-light: #fff;
-$color-dark: #444;
+$color-dark: #1e272e;
 
 $font-logo: 'Sacramento', cursive;
 $font-header: 'Oswald', sans-serif;
@@ -16,9 +16,12 @@ $font-text: 'Source Sans Pro', sans-serif;
 }
 
 body {
-    background: $color-light;
+    background-image: url("/images/background.jpg");
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
     font-family: $font-text;
-    color: $color-dark;
+    color: $color-light;
     font-weight: 300;
     font-size: 16px;
     line-height: 1.7;
@@ -57,17 +60,19 @@ body {
 }
 
 .sidebar, .posts {
-    background: $color-light;
+    background-color: rgba(#EA2027, 0.7);
+    box-shadow: 2px 2px 10px 3px #EA2027;
     margin-right: 10px;
     padding: 40px;
-    border: 1px solid $color-dark;
-    border-radius: 5px;
+    border: 1px solid $color-light;
+    border-radius: 5%;
 }
 
 /* Logo */
 
 .logo {
     font-family: $font-logo;
+    color: #EA2027;
     font-weight: 400;
     font-size: 104px;
     line-height: 1;
@@ -80,8 +85,18 @@ body {
     list-style-type: none;
     margin: 0;
     padding: 0;
+    span {
+        font-size: 18px;
+        font-weight: 600;
+        letter-spacing: 1px;
+    }
     .active {
         font-weight: bold;
+        color: #12CBC4;
+    }
+    
+    a:hover {
+        padding: 15px;
     }
 }
 
@@ -91,11 +106,29 @@ body {
     }
 }
 
+.tags {
+    a {
+        font-size: 18px;
+        font-weight: 600;
+        letter-spacing: 1px;
+        color: blue;
+    }
+}
+
 /* Authors */
 
 .authors {
     li {
         margin-bottom: 12px;
+        a {
+            font-size: 18px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            color: blue;
+        }
+        a:hover {
+            padding: 15px;
+        }
     }
 }
 
@@ -114,7 +147,17 @@ body {
 
 .post-tags {
     display: flex;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 1px;
     p {
         margin: 0 10px 0 0;
     }
+    a {
+        font-size: 18px;
+        font-weight: 600;
+        letter-spacing: 1px;
+        color: blue;
+    }
+
 }
