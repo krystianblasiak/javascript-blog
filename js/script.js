@@ -66,6 +66,8 @@ function generateTitleLinks(){
         titleList.insertAdjacentHTML("beforeend", linkHTML);
     }
 
+    document.querySelector(".titles a").classList.add("active");
+
     const links = document.querySelectorAll('.titles a');
 
     for(let link of links){
