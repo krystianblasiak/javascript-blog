@@ -114,30 +114,10 @@ body {
     a {
         font-weight: 600;
         letter-spacing: 1px;
-        color: blue;
         padding: 10px;
     }
 
-    .tag-size-5 {
-        font-size: 20px;
-        color: yellow;
-    }
 
-    .tag-size-4 {
-        font-size: 19px;
-    }
-
-    .tag-size-3 {
-        font-size: 18px;
-    }
-
-    .tag-size-2 {
-        font-size: 17px;
-    }
-
-    .tag-size-1 {
-        font-size: 16px;
-    }
 }
 
 /* Authors */
@@ -146,13 +126,16 @@ body {
     li {
         margin-bottom: 12px;
         a {
-            font-size: 18px;
             font-weight: 600;
             letter-spacing: 1px;
-            color: blue;
         }
         a:hover {
             padding: 15px;
+        }
+
+        .active {
+            font-weight: bold;
+            color: #12CBC4;
         }
     }
 }
@@ -188,6 +171,32 @@ body {
         letter-spacing: 1px;
         color: blue;
     }
+}
+
+/* Tag-size */
+.tag-size-5 {
+    font-size: 20px;
+    color: orange;
+}
+
+.tag-size-4 {
+    font-size: 19px;
+    color: blue;
+}
+
+.tag-size-3 {
+    font-size: 18px;
+    color: blue;
+}
+
+.tag-size-2 {
+    font-size: 17px;
+    color: blue;
+}
+
+.tag-size-1 {
+    font-size: 16px;
+    color: blue;
 }
 
 /* Media */
