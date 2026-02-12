@@ -354,3 +354,19 @@ function generateTagsRightColumn(){
 }
 
 generateTagsRightColumn();
+
+function addClickListenersToTagsRightColumn(){
+    /* find all links to tags */
+    const linksToTags = document.querySelectorAll(".tags.list a");
+
+    /* START LOOP: for each link */
+    for(let link of linksToTags){
+
+        /* add tagClickHandler as event listener for that link */
+        link.addEventListener("click", tagClickHandler);
+
+    /* END LOOP: for each link */
+    }
+}
+
+addClickListenersToTagsRightColumn();
