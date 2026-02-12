@@ -1,15 +1,19 @@
 /* eslint-disable no-prototype-builtins */
 'use strict';
 
-const optArticleSelector = '.post',
-    optTitleSelector = '.post-title',
-    optTitleListSelector = '.titles',
-    optArticleTagsSelector = ".post-tags .list",
-    optArticleAuthorSelector = ".post-author",
-    optTagsListSelector = ".tags.list",
-    optAuthorsListSelector = ".authors.list",
+const
     optCloudClassCount = 5,
     optCloudClassPrefix = "tag-size-";
+
+const opts = {
+    articleSelector: '.post',
+    titleSelector: '.post-title',
+    titleListSelector: '.titles',
+    articleTagsSelector: ".post-tags .list",
+    articleAuthorSelector: ".post-author",
+    tagsListSelector: ".tags.list",
+    authorsListSelector: ".authors.list"
+};
 
 function titleClickHandler(event){
     event.preventDefault();
@@ -48,11 +52,11 @@ function titleClickHandler(event){
 function generateTitleLinks(customSelector = ''){
 
     /* remove contents of titleList */
-    const titleList = document.querySelector(optTitleListSelector);
+    const titleList = document.querySelector(opts.titleListSelector);
     titleList.innerHTML = "";
 
     /* for each article */
-    const articles = document.querySelectorAll(optArticleSelector + customSelector);
+    const articles = document.querySelectorAll(opts.articleSelector + customSelector);
     console.log(articles);
 
     for(let article of articles) {
@@ -62,7 +66,7 @@ function generateTitleLinks(customSelector = ''){
 
         /* find the title element */
         /* get the title from the title element */
-        const articleTitle = article.querySelector(optTitleSelector).innerHTML;
+        const articleTitle = article.querySelector(opts.titleSelector).innerHTML;
         console.log(articleTitle);
 
         /* create HTML of the link */
@@ -117,13 +121,13 @@ function generateTags(){
     let allTags = {};
 
     /* find all articles */
-    const articles = document.querySelectorAll(optArticleSelector);
+    const articles = document.querySelectorAll(opts.articleSelector);
 
     /* START LOOP: for every article: */
     for(let article of articles){
 
         /* find tags wrapper */
-        const wrapperTags = article.querySelector(optArticleTagsSelector);
+        const wrapperTags = article.querySelector(opts.articleTagsSelector);
         console.log("wrappper tags: " + wrapperTags);
 
         /* make html variable with empty string */
@@ -165,7 +169,7 @@ function generateTags(){
     }
 
     /* [NEW] find list of tags in right column */
-    const tagList = document.querySelector(optTagsListSelector);
+    const tagList = document.querySelector(opts.tagsListSelector);
 
     /* make new const named tagsParams variable */
     const tagsParams = caluclateTagsParams(allTags);
@@ -200,7 +204,7 @@ function tagClickHandler(event){
     const href = clickedElement.getAttribute("href");
 
     /* make a new constant "articles" */
-    const articles = document.querySelectorAll(optArticleSelector);
+    const articles = document.querySelectorAll(opts.articleSelector);
 
     /* START LOOP: for each articles */
     for(let article of articles){
@@ -298,13 +302,13 @@ function generateAuthors(){
     let allAuthors = {};
 
     /* find all articles */
-    const articles = document.querySelectorAll(optArticleSelector);
+    const articles = document.querySelectorAll(opts.articleSelector);
 
     /* START LOOP: for every article: */
     for(let article of articles){
 
         /* find author wrapper */
-        const wrapperAuthor = article.querySelector(optArticleAuthorSelector);
+        const wrapperAuthor = article.querySelector(opts.articleAuthorSelector);
 
         /* get author from data-author attribute */
         const articleAuthor = article.getAttribute("data-author");
@@ -330,7 +334,7 @@ function generateAuthors(){
     }
 
     /* [NEW] find list of authors in right column */
-    const tagList = document.querySelector(optAuthorsListSelector);
+    const tagList = document.querySelector(opts.authorsListSelector);
 
     /* make new const named authorsParams variable */
     const authorsParams = caluclateTagsParams(allAuthors);
@@ -376,6 +380,25 @@ function authorClickHandler(event){
     /* make new constant named "dataAuthor" and give it value data-author click element */
     const dataAuthor = clickedElement.getAttribute("href").split('-')[1] + " " + clickedElement.getAttribute("href").split('-')[2];
     console.log("author:" + dataAuthor);
+
+    const articles = document.querySelectorAll(opts.articleSelector);
+
+    /* START LOOP: for each articles */
+    for(let article of articles){
+
+        article.classList.remove("active");
+
+    /* END LOOP: for each articles */
+    }
+
+    for(let article of articles){
+
+        const author = article.getAttribute("data-author");
+        if(dataAuthor == author){
+            article.classList.add("active");
+            break;
+        }
+    }
 
     /* find all author links with data-author attribute equal to the "data-author" constant */
     const linksDataAuthor = document.querySelectorAll("a[href='" + clickedElement.getAttribute("href") + "']");
