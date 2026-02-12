@@ -108,11 +108,35 @@ body {
 }
 
 .tags {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
     a {
-        font-size: 18px;
         font-weight: 600;
         letter-spacing: 1px;
         color: blue;
+        padding: 10px;
+    }
+
+    .tag-size-5 {
+        font-size: 20px;
+        color: #12CBC4;
+    }
+
+    .tag-size-4 {
+        font-size: 19px;
+    }
+
+    .tag-size-3 {
+        font-size: 18px;
+    }
+
+    .tag-size-2 {
+        font-size: 17px;
+    }
+
+    .tag-size-1 {
+        font-size: 16px;
     }
 }
 
