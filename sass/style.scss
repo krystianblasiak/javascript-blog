@@ -86,10 +86,11 @@ body {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    span {
+    a {
         font-size: 18px;
         font-weight: 600;
         letter-spacing: 1px;
+        color: blue;
     }
     .active {
         font-weight: bold;
@@ -116,8 +117,6 @@ body {
         letter-spacing: 1px;
         padding: 10px;
     }
-
-
 }
 
 /* Authors */
@@ -131,11 +130,6 @@ body {
         }
         a:hover {
             padding: 15px;
-        }
-
-        .active {
-            font-weight: bold;
-            color: #12CBC4;
         }
     }
 }
@@ -179,29 +173,36 @@ body {
 }
 
 /* Tag-size */
-.tag-size-5 {
-    font-size: 20px;
-    color: orange;
-}
+.authors, .tags {
+    .tag-size-5 {
+        font-size: 20px;
+        color: orange;
+    }
 
-.tag-size-4 {
-    font-size: 19px;
-    color: blue;
-}
+    .tag-size-4 {
+        font-size: 19px;
+        color: blue;
+    }
 
-.tag-size-3 {
-    font-size: 18px;
-    color: blue;
-}
+    .tag-size-3 {
+        font-size: 18px;
+        color: blue;
+    }
 
-.tag-size-2 {
-    font-size: 17px;
-    color: blue;
-}
+    .tag-size-2 {
+        font-size: 17px;
+        color: blue;
+    }
 
-.tag-size-1 {
-    font-size: 16px;
-    color: blue;
+    .tag-size-1 {
+        font-size: 16px;
+        color: blue;
+    }
+
+    .active {
+        font-weight: bold;
+        color: #12CBC4;
+    }
 }
 
 /* Media */
