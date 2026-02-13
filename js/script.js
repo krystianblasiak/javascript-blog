@@ -1,8 +1,11 @@
 /* eslint-disable no-prototype-builtins */
 'use strict';
 
-const
-    optCloudClassCount = 5,
+const templates = {
+    articleLink: Handlebars.compile(document.querySelector("#template-article-link").innerHTML)
+}
+
+const optCloudClassCount = 5,
     optCloudClassPrefix = "tag-size-";
 
 const opts = {
@@ -70,7 +73,8 @@ function generateTitleLinks(customSelector = ''){
         console.log(articleTitle);
 
         /* create HTML of the link */
-        const linkHTML = "<li><a href='#" + articleId + "'><span>" + articleTitle + "</span></a></li>";
+        const linkHTMLData = {id: articleId, title: articleTitle};
+        const linkHTML = templates.articleLink(linkHTMLData);
         console.log(linkHTML);
 
         /* insert link into titleList */
