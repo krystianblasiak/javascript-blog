@@ -189,8 +189,8 @@ function generateTags(){
 
         /* [NEW] generate code of a link and it to allTagsHTML */
         allTagsData.tags.push({
-            hashTag: "tag-" + tag,
-            tag: tag,
+            id: "tag-" + tag,
+            title: tag,
             count: allTags[tag],
             className: calculateTagClass(allTags[tag], tagsParams)
         });
@@ -363,8 +363,8 @@ function generateAuthors(){
         /* [NEW] generate code of a link and it to allAuthorsHTML */
         //allAuthorsHTML += "<li><a href='#author-" +  + "' class='" + calculateTagClass(allAuthors[author], authorsParams) + "'>"+ author +"</a></li>";
         allAuthorsData.tags.push({
-            hashTag: "author-" + author.split(" ")[0] + "-" + author.split(" ")[1],
-            tag: author,
+            id: "author-" + author.split(" ")[0] + "-" + author.split(" ")[1],
+            title: author,
             count: allAuthors[author],
             className: calculateTagClass(allAuthors[author], authorsParams)
         });
