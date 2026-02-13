@@ -149,10 +149,11 @@ function generateTags(){
         for(let tag of articleTagsArray){
 
             /* generate HTML of the link */
-            const linkhtml = "<li><a href='#tag-" + tag + "'><span>" + tag + "</span></a></li>\n";
+            const linkHTMLData = {id: "tag-" + tag, title: tag};
+            const linkHTML = templates.articleLink(linkHTMLData);
 
             /* add generated code to html variable */
-            html += linkhtml;
+            html += linkHTML;
 
             /* [NEW] check if this link is NOT already in allTags */
             if(!allTags.hasOwnProperty(tag)){
@@ -318,7 +319,8 @@ function generateAuthors(){
         const articleAuthor = article.getAttribute("data-author");
 
         /* generate HTML of the link */
-        const linkhtml = "by <a href='#author-" + articleAuthor.split(' ')[0] + "-" + articleAuthor.split(' ')[1] + "'><span>" + articleAuthor + "</span></a>";
+        const linkHTMLData = {id: "author-" + articleAuthor.split(' ')[0] + "-" + articleAuthor.split(' ')[1], title: "by " + articleAuthor};
+        const linkHTML = templates.articleLink(linkHTMLData);
 
         /* [NEW] check if this link is NOT already in allAuthors */
         if(!allAuthors.hasOwnProperty(articleAuthor)){
@@ -332,7 +334,7 @@ function generateAuthors(){
         }
 
         /* insert HTML of all the links into the author wrapper */
-        wrapperAuthor.innerHTML = linkhtml;
+        wrapperAuthor.innerHTML = linkHTML;
 
     /* END LOOP: for every article: */
     }
